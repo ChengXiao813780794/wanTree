@@ -1,0 +1,42 @@
+<div ng-controller="userBasicController" ui-view>
+	<div class="user_invite bgcolorfff displayFlexEnd">		
+		<div class="mine_con wid605">
+			<div class="mine_con_block flexSpaceBetween wid605 hei120">
+				<div class="colorblack fs28">头像</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span><img src="../img/user_img.jpg" class="touxiang_img"></span>
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween wid605 hei120" ui-sref="user.basic.name">
+				<div class="colorblack fs28">昵称</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="fs24 colorgray1">{{user.nickName}}</span>	
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween wid605 hei120" ui-sref="user.basic.all">
+				<div class="colorblack fs28">个人信息</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween wid605 hei120">
+				<div class="colorblack fs28">认证信息</div>
+				<div class="colorblack fs28 mr03 displayFlex" ng-click="confirm()">
+					<span class="fs24 colorgray1">{{user.certState}}</span>
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- mask -->
+	<div ng-class="{'show': ismask}" ng-click="dismiss()"></div>
+	<!-- popup -->
+	<div class="popup" ng-show="ishow">
+		<div class="popup_divi fs32 mt035 colorblack" ui-sref="user.founderCertify">认证为分社群创始人会员</div>
+		<div class="popup_divi fs32 colorblack" ui-sref="user.memberCertify">认证为企业会员</div>
+	</div>
+</div>
+
+<div ng-include=" 'tpl/footer.html' "></div>

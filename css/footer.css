@@ -1,0 +1,11 @@
+/*footer样式*/
+/*.footer_active{}*/
+.pos1c{background-position: 0 -3.21rem !important;}
+.pos2c{background-position: 0 -8.10rem !important;}
+.pos3c{background-position: 0 -6.41rem !important;}
+.pos4c{background-position: 0 -5.25rem !important;}
+
+.pos1c+span,
+.pos2c+span,
+.pos3c+span,
+.pos4c+span{color:#80b134 !important;}

@@ -1,0 +1,28 @@
+<div ng-controller="loginController">
+	<div ng-class="{'show': ismask}" ng-click="dismiss()"></div>
+	<form class="login">
+		<div class="login_box alljuzhong">
+			<div class="login_btn displayF" style="margin-top: 0.75rem;">
+				<span class="logIcon_user"></span>
+				<input class="login_input" type="text" placeholder="请输入手机号或用户昵称" ng-model="user.name">
+			</div>
+			<div class="login_btn displayF">
+				<span class="logIcon_pwd"></span>
+				<input class="login_input" type="password" placeholder="请输入密码" ng-model="user.password">
+			</div>
+			<div class="login_btn bordernone displayF">
+				<a ui-sref="signup" class="toReg">注册</a>
+				<a href="" class="toReg" style="margin-left: 2.5rem;">忘记密码</a>
+			</div>
+			<div class="login_on mt01" ng-click="login(user)">登录</div>
+			<div class="login_on mt03" ui-sref="home">返回首页</div>
+		</div>
+	</form>
+	<div class="multiUser alljuzhong" ng-if="ishow">
+		<div class="multiT bgcolorfff colorblack">你的手机号已注册多个用户</div>
+		<div ng-repeat="obj in userArr">
+			<div class="login_on" ng-click="user_login(obj)">{{obj.nickName}}</div>
+		</div>
+		<div class="red fs22 textshuo">*已注册用户点击即可登入</div>
+	</div>
+</div>

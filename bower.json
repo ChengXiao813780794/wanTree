@@ -1,0 +1,19 @@
+{
+  "name": "public",
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/jslib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-ui-router": "^0.2.18"
+  }
+}

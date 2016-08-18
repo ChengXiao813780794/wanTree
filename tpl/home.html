@@ -1,0 +1,179 @@
+<link rel="stylesheet" href="css/home.css">
+<style type="text/css">
+#Marquee{ height:0.52rem; overflow:hidden;}
+.announce_kv{width: 5rem; height: 0.52rem;line-height: 0.52rem}
+</style>
+<div ng-include=" 'tpl/header.html' "></div>
+<!-- 公告 -->
+<div ng-controller="homeController">
+  <div class="announce displayFlexCol">
+    <span class="home_announce"></span>
+    <span class="announce_text" id="announce_text">
+      <div id="Marquee">
+        <div ng-repeat="obj in announceArr">
+          <div class="announce_kv">
+            <p>{{obj.noticeContent}}</p>
+          </div>
+        </div>
+      </div>
+    </span>   
+    <span class="announce_to"></span>
+  </div>
+  <!-- 轮播 -->
+  <div class="kv">
+    <div id="leftTabBox" class="tabBox">
+      <div class="hd">
+          <ul class="juzhong">
+              <li></li>
+              <li></li>
+              <li></li>
+              <li></li>
+          </ul>
+      </div>
+      <div class="bd">
+        <ul>
+            <li><img src="../img/kv.jpg"></li>
+        </ul>
+        <ul>
+            <li><img src="../img/kv.jpg"></li>
+        </ul>
+        <ul>
+            <li><img src="../img/kv.jpg"></li>
+        </ul>
+        <ul>
+            <li><img src="../img/kv.jpg"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="middle displayF" ng-click="allduty()">
+      <div ng-class="{'show': ismask}" ng-click="dismiss()"></div>
+      <div class="middle_block flex1" ui-sref="login">
+        <img src="../img/m1.png">
+        <p class="imgTitle">招商任务</p>
+      </div>
+      <div class="middle_block flex1" ui-sref="search">
+        <img src="../img/m2.png">
+        <p class="imgTitle">招聘任务</p>
+      </div>
+      <div class="middle_block flex1" ng-click="postTask()">
+        <img src="../img/m3.png">
+        <p class="imgTitle">发起任务</p>
+      </div>
+      <div class="middle_block flex1" ui-sref="search">
+        <img src="../img/m4.png">
+        <p class="imgTitle">我的任务</p>
+      </div>
+  </div>
+  <!-- mask -->
+  <div ng-class="{'show': ismask}" ng-click="dismiss()"></div>   
+  <!-- popup -->
+  <div class="popDialog alljuzhong" ng-if="pop1">
+      <div class="popTitle fs32">选择发起任务类型</div>
+     <div class="popCon">
+        <div class="dutyOne fs32 colorgreen displayFlex borderb" ui-sref="launch_merchants">招商任务</div>
+        <div class="dutyOne fs32 colorgreen displayFlex">招聘任务</div>
+      </div>
+  </div>  
+  <div class="popDialog alljuzhong" ng-if="pop2">
+      <div class="popTitle fs32">您不是企业会员，不能发起任务！</div>
+     <div class="popCon">
+        <div class="dutyOne fs32 colorgreen displayFlex" ui-sref="user.memberCertify">去认证</div>
+      </div>
+  </div>  
+    <!-- <div ng-if="popt2">
+      <div class="popTitle fs28">您不是企业会员，不能发起任务！</div>
+    </div> -->
+      <!-- <div ng-if="popc2">
+        <div class="dutyOne fs32 colorgreen displayFlex" ui-sref="user.memberCertify">去认证</div>
+      </div> -->    
+  
+
+  <!-- <div class="middle" ng-controller="middleClassfify" ng-click="allduty()">
+      
+        <div ng-class="{'show': ismask}" ng-click="dismiss()"></div>
+   
+        <div class="popDialog alljuzhong" ng-if="ishow">
+          <div ng-if="popt1">
+            <div class="popTitle fs32">选择发起任务类型</div>
+          </div>
+          <div ng-if="popt2">
+            <div class="popTitle fs28">您不是企业会员，不能发起任务！</div>
+          </div>
+          
+          <div class="popCon">
+            <div ng-if="popc1">
+              <div class="dutyOne fs32 colorgreen displayFlex borderb" ui-sref="launch_merchants">招商任务</div>
+              <div class="dutyOne fs32 colorgreen displayFlex borderb">招聘任务</div>
+            </div>
+            <div ng-if="popc2">
+              <div class="dutyOne fs32 colorgreen displayFlex" ui-sref="user.memberCertify">去认证</div>
+            </div>
+          </div>
+        </div>
+    <div class="middle_block" ui-sref="search">
+      <div><img src="../img/m1.png"></div>
+      <p class="imgTitle">招商任务</p>
+    </div>
+    <div class="middle_block" ui-sref="search">
+      <a><img src="../img/m2.png"></a>
+      <p class="imgTitle">招聘任务</p>
+    </div>
+    <div class="middle_block">
+      <a ng-click="postTask()"><img src="../img/m3.png"></a>
+      <p class="imgTitle">发起任务</p>
+    </div>
+    <div class="middle_block" ui-sref="search">
+      <a><img src="../img/m4.png"></a>
+      <p class="imgTitle">我的订单</p>
+    </div>
+  </div>
+   -->
+  <!-- 众包详情 -->
+  <div ng-controller="sourceController">
+      <div ng-repeat="obj in Bsources">
+        <a ui-sref="search">
+          <div class="source">
+            <div class="source_title displayFlexStart">
+              <span class="light_source ml03 inlineblock"></span>
+              <span class="source_text inlineblock">热门招人众包</span>
+            </div>
+            <div class="source_img">
+              <img ng-src="{{obj.src}}">
+            </div>
+            <div class="source_detail">
+              <span class="del_1 block mt01">{{obj.title}}</span>
+              <span class="del_2 block mt01">截止时间 : {{obj.time}}</span>
+              <div class="del_2 mt01">任务酬金 : <span class="red">{{obj.price}}</span></div>
+              <div class="del_2 del_3 mt01">任务描述 : {{obj.detail}}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div ng-repeat="obj in Psources">
+        <a ui-sref="search">
+          <div class="source">
+            <div class="source_title displayFlexStart">
+              <span class="light_source ml03"></span>
+              <span class="source_text">热门招人众包</span>
+            </div>
+            <div class="source_img">
+              <img ng-src="{{obj.src}}">
+            </div>
+            <div class="source_detail">
+              <span class="del_1 block mt01">{{obj.title}}</span>
+              <span class="del_2 block mt01">截止时间 : {{obj.time}}</span>
+              <div class="del_2 mt01">任务酬金 : <span class="red">{{obj.price}}</span></div>
+              <div class="del_2 del_3 mt01">任务描述 : {{obj.detail}}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+  </div>
+</div>
+<script>
+  $(function(){
+    alert($);
+  })
+</script>
+<div ng-include=" 'tpl/footer.html' "></div>

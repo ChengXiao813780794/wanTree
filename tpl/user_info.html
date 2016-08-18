@@ -1,0 +1,155 @@
+<link rel="stylesheet" href="../css/user_info.css">
+
+<div ng-controller="userController" ui-view>
+	<!-- 头部信息 -->
+	<!-- mask -->
+		<!-- popup -->
+	<div ng-class="{'show': ismask}" ng-click="dismiss()"></div>
+
+	<div class="popup" ng-show="ishow">
+		<div class="popup_divi fs32 mt035 colorblack" ui-sref="user.founderCertify">认证为分社群创始人会员</div>
+		<div class="popup_divi fs32 colorblack" ui-sref="user.memberCertify">认证为企业会员</div>
+	</div>
+	<div class="user_top displayFlex ">
+		<div class="user_img">
+			<img src="../img/user_img.jpg" class="user_img">
+		</div>
+		<div class="user_text displayFlexRow flexCol">
+			<div class="user_name" ng-bind="user.nickName"></div>
+			<div class="user_type"><span ng-bind="user.userTypeName"></span><span class="inlineblock user_confirm" ng-click="confirm()" ng-bind="user.certStateName"></span></div>
+		</div>
+		<div class="user_arrow_right" ui-sref="user.basic"></div>
+	</div>
+	
+	
+	<!-- 资源信息 -->
+	<div class="user_resource displayFlex">
+		<div class="resource_divide displayFlex flexCol" style="border-right: 1px solid #dcdcdc;">
+			<span>酬金</span>
+			<span class="mt015 color333333">33000</span>
+		</div>
+		<div class="resource_divide displayFlex flexCol">
+			<span>树叶</span>
+			<span class="mt015 color333333">580</span>
+		</div>
+	</div>
+
+	<!-- 邀请 -->
+	<div class="user_invite mt02 bgcolorfff displayFlex">
+		<div class="mine_icon">
+			<div class="mine_block displayFlex">
+				<span class="Uicon_invite"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_1"></span>
+			</div>			
+		</div>
+		<div class="mine_con">
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">我的邀请</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					邀请盟友加入
+					<span class="Uicon_invite_f"></span>
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">我的盟友</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					5
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 任务 -->
+	<div class="user_invite mt02 bgcolorfff displayFlex">
+		<div class="mine_icon">
+			<div class="mine_block displayFlex">
+				<span class="Uicon_2"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_3"></span>
+			</div>			
+		</div>
+		<div class="mine_con">
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">我发起的任务</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">我领取的任务</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 订单 -->
+	<div class="user_invite mt02 bgcolorfff displayFlex">
+		<div class="mine_icon">
+			<div class="mine_block displayFlex">
+				<span class="Uicon_4"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_5"></span>
+			</div>			
+		</div>
+		<div class="mine_con">
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">我的订单</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">关注公众号</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 信息修改 -->
+	<div class="user_invite mt02 bgcolorfff displayFlex">
+		<div class="mine_icon">
+			<div class="mine_block displayFlex">
+				<span class="Uicon_6"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_7"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_8"></span>
+			</div>				
+		</div>
+		<div class="mine_con">
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">绑定手机号</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">修改密码</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">收货地址</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="mine_arrow_right ml02"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="primary_btn fs30 mt05" ng-click="logout()">退出登录</div>
+</div>
+<div ng-include=" 'tpl/footer.html' "></div>

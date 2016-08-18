@@ -1,0 +1,101 @@
+<link rel="stylesheet" href="../../css/user_info.css">
+<div ng-controller="memberCertify">
+	<div class="cerRowTitle fs26 red fw borderb displayFlexCol">
+		<span class="ml03">联络人信息</span>
+	</div>
+	<div class="bgcolorfff">
+		<div class="cerRow displayFlex">
+			<div class="mine_block displayFlex">
+				<span class="split_my"></span>
+			</div>
+			<div class="cerInput fs24 colorgray1 displayFlexCol">
+				<span class="width18">联络人真实姓名<i class="red">*</i></span>
+					<input type="text" class="input fs24 colorgray1 ml01 input_size" placeholder="请填写联络人真实姓名" ng-model="member.contactPerson">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="mine_block displayFlex">
+				<span class="split_myPhone"></span>
+			</div>
+			<div class="cerInput fs24 colorgray1 displayFlexCol">
+				<span class="width18">联络人电话号码<i class="red">*</i></span>
+					<input type="text" class="input fs24 colorgray1 ml01 input_size" placeholder="请填写联络人电话号码"  ng-model="member.contactMobile ">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="mine_block displayFlex">
+				<span class="split_myWchatNo"></span>
+			</div>
+			<div class="cerInput fs24 colorgray1 displayFlexCol">
+				<span class="width18">联络微信<i class="red">*</i></span>
+					<input type="text" class="input fs24 colorgray1 ml01 input_size" placeholder="请填写联络微信" ng-model="member.contactWechat ">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="mine_block displayFlex">
+				<span class="split_myMail"></span>
+			</div>
+			<div class="cerInput fs24 colorgray1 displayFlexCol bordernone">
+				<span class="width18">联络邮箱<i class="red">*</i></span>
+					<input type="text" class="input fs24 colorgray1 ml01 input_size" placeholder="请填写联络邮箱" ng-model="member.contactEmail ">
+			</div>
+		</div>
+	</div>
+	<div class="cerRowTitle fs26 red fw borderb displayFlexCol bordert">
+		<span class="ml03">企业信息</span>
+	</div>
+	<div class="bgcolorfff">
+		<div class="cerRow displayFlex">
+			<div class="mine_block displayFlex">
+				<span class="split_enterName"></span>
+			</div>
+			<div class="cerInput fs24 colorgray1 displayFlexCol">
+				<span class="width18">企业名称<i class="red">*</i></span>
+					<input type="text" class="input fs24 colorgray1 ml01 input_size" placeholder="请填写您的企业名称" ng-model="member.Name">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="mine_block displayFlex">
+				<span class="split_myPhone"></span>
+			</div>
+			<div class="cerInput fs24 colorgray1 displayFlexCol">
+				<span class="width18">企业联系电话<i class="red">*</i></span>
+					<input type="text" class="input fs24 colorgray1 ml01 input_size" placeholder="请填写您的企业联系电话" ng-model="member.Phone">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="mine_block displayFlex">
+				<span class="split_bank"></span>
+			</div>
+			<div class="cerInput fs24 colorgray1 displayFlexCol">
+				<span class="width18">开户行<i class="red">*</i></span>
+				<select type="text" class="input fs24 colorgray1 ml04 input_size"  style="text-indent: 0.05rem;width: 2.95rem;" ng-model="member.Bank"  ng-options="member.id as member.name for member in banks">
+					<option value="">请选择您的开户行</option>
+				</select>
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="mine_block displayFlex">
+				<span class="split_bank"></span>
+			</div>
+			<div class="cerInput fs24 colorgray1 displayFlexCol">
+				<span class="width18">开户支行<i class="red">*</i></span>
+					<input type="text" class="input fs24 colorgray1 ml01 input_size" placeholder="请填写您的开户支行" ng-model="member.bankSite">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="mine_block displayFlex">
+				<span class="split_creditCard"></span>
+			</div>
+			<div class="cerInput fs24 colorgray1 displayFlexCol bordernone">
+				<span class="width18">银行账号<i class="red">*</i></span>
+					<input type="text" class="input fs24 colorgray1 ml01 input_size" placeholder="请填写您的银行账号" ng-model="member.bankAccount">
+			</div>
+		</div>
+	</div>
+	<div class="cerRow displayFlex" style="height: 1.3rem;">
+		<div class="little_btn fs33 colorwhite "  ng-click="saveEnterInfo(member,false)">保存为草稿</div>
+		<div class="little_btn fs33 colorwhite ml03"  ng-click="saveEnterInfo(member,true)">提交认证</div>
+	</div>
+</div>
+<div ng-include=" 'tpl/footer.html' "></div>

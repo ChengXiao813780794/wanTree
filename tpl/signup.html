@@ -1,0 +1,38 @@
+<div class="SignupController" ng-controller="SignupController">
+	<div ng-class="{'show': ismask}" ng-click="dismiss()"></div>
+	<div class="multiUser alljuzhong" ng-if="ishow">
+		<div class="multiT bgcolorfff colorblack">你的手机号已注册用户</div>
+		<div ng-repeat="obj in userArr">
+			<div class="login_on" ng-click="user_login(obj)">{{obj.nickName}}</div>
+		</div>
+		<div class="red fs22 textshuo">*已注册用户点击即可登入</div>
+		<div class="multiT bgcolorfff colorblack bordert" style="width: 100%">新用户注册</div>
+		<div class="login_on" ng-click="user_register(user)">{{user.name}}</div>
+		<div class="red fs22 textshuo">*新注册用户点击即可注册成功</div>
+	</div>
+	<div class="login">
+		<div class="signup_box">
+			<div class="errorMsg mt03">{{errorMsg}}</div>
+			<div class="login_btn displayFlex mt01">
+				<span class="logIcon_phone"></span>
+				<input class="login_input" type="text" placeholder="手机号码" ng-model="user.phone">
+			</div>
+			<div class="login_btn displayFlex">
+				<span class="logIcon_user"></span>
+				<input class="login_input" type="text" placeholder="请输入用户昵称" ng-model="user.name">
+			</div>
+			<div class="login_btn displayFlex">
+				<span class="logIcon_pwd"></span>
+				<input class="login_input" type="password" placeholder="输入6-12位密码" ng-model="user.password" maxlength='12'>
+			</div>
+			<div class="displayFlex signup_check_input">
+				<div class="login_btn displayFlex" style="width:2.2rem;">
+					<span class="logIcon_phone"></span>
+					<input class="login_input" type="password" placeholder="输入验证码" style="width:1.5rem;" ng-model="user.code" maxlength='6'>		
+				</div>
+				<button class="signup_check_btn" ng-click="getCode(user);">{{user.codeBtn}}</button>
+			</div>
+			<div class="login_on mt075" ng-click="register(user);">注册</div>
+		</div>
+	</div>
+</div>

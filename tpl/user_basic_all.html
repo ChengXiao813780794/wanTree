@@ -1,0 +1,252 @@
+<div ng-controller="userAllController">
+	<!-- mask -->
+	<div ng-class="{'show': ismask}" ng-click="dismiss()"></div>
+	<!-- popup -->
+	<div class="popDialog alljuzhong" ng-show="ishow">
+		<div class="popTitle fs33">输入标签</div>
+		<div class="popCon">
+			<input type="text" class="input popinput fs28" placeholder="请输入你想添加的标签" ng-model="user.addInputTag">
+			<div class="popBtn displayFlex mt06">
+				<div class="popBtnChild fs28 displayFlex blue" ng-click="cancel()">取消</div>
+				<div class="popBtnChild fs28 displayFlex red" ng-click="sure()">确定</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="user_invite bgcolorfff displayFlex">
+		<div class="mine_icon">
+			<div class="mine_block displayFlex">
+				<span class="Uicon_invite"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_1"></span>
+			</div>	
+			<div class="mine_block displayFlex">
+				<span class="Uicon_invite"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_1"></span>
+			</div>	
+			<div class="mine_block displayFlex">
+				<span class="Uicon_invite"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_1"></span>
+			</div>	
+			<div class="mine_block displayFlex">
+				<span class="Uicon_invite"></span>
+			</div>						
+		</div>
+		<div class="mine_con">
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">真实姓名</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的真实姓名" ng-model="user.name">
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">性别</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的性别" ng-model="user.sexName">
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">出生日期</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的出生年月日" id="datepicker" ng-model="user.birthday">
+				</div>
+				
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">手机号</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的联系电话" ng-model="user.mobile">
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">微信</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的微信号" ng-model="user.wechat">
+				</div>
+				
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">QQ</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的QQ号" ng-model="user.qq">
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">邮箱</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的邮箱" ng-model="user.email">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="user_invite bgcolorfff displayFlex mt03">
+		<div class="mine_icon">
+			<div class="mine_block displayFlex">
+				<span class="Uicon_invite"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_1"></span>
+			</div>	
+			<div class="mine_block displayFlex">
+				<span class="Uicon_invite"></span>
+			</div>
+			<div class="mine_block displayFlex">
+				<span class="Uicon_1"></span>
+			</div>	
+		</div>
+		<div class="mine_con">
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">所需服务</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您所需要的服务" ng-model="user.reqService">
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">行业/方向</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的行业/方向" ng-model="user.trade">
+				</div>
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">公司</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的公司名称" ng-model="user.company">
+				</div>
+				
+			</div>
+			<div class="mine_con_block flexSpaceBetween">
+				<div class="colorblack fs28">职务</div>
+				<div class="displayFlexEnd">
+					<input type="text" class="b_input input fs24" placeholder="请填写您的职务" ng-model="user.job">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="user_invite bgcolorfff mt03">
+		<div class="mine_con_block1" style="height:1.51rem;">
+			<div class="mine_con1 displayFlexStart">
+				<div class="mine_block1 displayFlex">
+					<span class="Uicon_invite"></span>
+				</div>
+				<div class="FlexLeft">
+					<span class="colorblack fs28">目前工作地点</span>
+				</div>				
+			</div>
+			<div class="displayFlexStart">
+				<input type="text" class="c_input input fs24 ml05" placeholder="请填写目前工作的地点" ng-model="user.workLocation">
+			</div>
+		</div>
+		<div class="mine_con_block2 pb02">
+			<div class="mine_con1 displayFlexStart">
+				<div class="mine_block1 displayFlex">
+					<span class="Uicon_invite"></span>
+				</div>
+				<div class="FlexLeft">
+					<span class="colorblack fs28">技能标签</span>
+				</div>				
+			</div>
+			<div class="mine_tax displayFlexStart flexWrap">
+				<div ng-repeat="obj in stagArr">
+					<div class="pd11 displayFlex">
+						<span class="mine_tag">{{obj}}</span>
+					</div>
+				</div>
+				<div class="pd11 displayFlex">
+					<span class="mine_tag white bgcolorgreen borderg" ng-click="addTag()">＋添加标签</span>
+				</div>
+			</div>			
+		</div>
+	</div>
+	<div class="user_invite bgcolorfff">
+		<div class="mine_con_block2 pb02">
+			<div class="mine_con1 displayFlexStart">
+				<div class="mine_block1 displayFlex">
+					<span class="Uicon_invite"></span>
+				</div>
+				<div class="FlexLeft">
+					<span class="colorblack fs28">个人优势</span>
+				</div>				
+			</div>
+			<div class="displayFlexStart">
+				<textarea class="mine_textarea fs24" placeholder="请填写您的个人优势" ng-model="user.advantage"></textarea>
+			</div>
+		</div>
+		<div class="mine_con_block2 pb02">
+			<div class="mine_con1 displayFlexStart">
+				<div class="mine_block1 displayFlex">
+					<span class="Uicon_invite"></span>
+				</div>
+				<div class="FlexLeft">
+					<span class="colorblack fs28">教育经历</span>
+				</div>				
+			</div>
+			<div class="displayFlexStart">
+				<textarea class="mine_textarea fs24" placeholder="请填写您的教育经历" ng-model="user.educationExperience"></textarea>
+			</div>
+		</div>
+		<div class="mine_con_block1">
+			<div class="mine_con1 displayFlexStart" style="height: 1.1rem;">
+				<div class="mine_block1 displayFlex">
+					<span class="Uicon_invite"></span>
+				</div>
+				<div class="FlexLeft">
+					<span class="colorblack fs28" style="width: 1.1rem;">学历</span>
+				</div>
+				<div class="displayFlexStart">
+					<input type="text" class="c_input input fs24" placeholder="请填写您的学历" ng-model="user.diploma">
+				</div>				
+			</div>	
+		</div>
+		<div class="mine_con_block1">
+			<div class="mine_con1 displayFlexStart" style="height: 1.1rem;">
+				<div class="mine_block1 displayFlex">
+					<span class="Uicon_invite"></span>
+				</div>
+				<div class="FlexLeft">
+					<span class="colorblack fs28">工作年限</span>
+				</div>
+				<div class="displayFlexStart">
+					<input type="text" class="c_input input fs24" placeholder="请填写您的工作年限" ng-model="user.workYears">
+				</div>				
+			</div>	
+		</div>
+		<div class="mine_con_block1">
+			<div class="mine_con1 displayFlexStart" style="height: 1.1rem;">
+				<div class="mine_block1 displayFlex">
+					<span class="Uicon_invite"></span>
+				</div>
+				<div class="FlexLeft">
+					<span class="colorblack fs28">期望薪资</span>
+				</div>
+				<div class="displayFlexStart">
+					<input type="text" class="c_input input fs24" placeholder="请填写您的期望薪资" ng-model="user.expectSalary">
+				</div>				
+			</div>	
+		</div>
+		<div class="mine_con_block1" style="height:1.51rem;">
+			<div class="mine_con1 displayFlexStart">
+				<div class="mine_block1 displayFlex">
+					<span class="Uicon_invite"></span>
+				</div>
+				<div class="FlexLeft">
+					<span class="colorblack fs28">期望工作地点</span>
+				</div>				
+			</div>
+			<div class="displayFlexStart">
+				<input type="text" class="c_input input fs24 ml05" placeholder="请填写您期望的工作地点" ng-model="user.expectWorkLocation">
+			</div>
+		</div>
+	</div>
+
+
+	<div class="primary_btn fs30 mt05">保存</div>
+</div>
+<script type="text/javascript">
+      
+</script>

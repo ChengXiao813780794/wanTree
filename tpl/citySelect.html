@@ -1,0 +1,31 @@
+<div ng-controller="citySelectController" style="padding-bottom: 1.3rem;">
+	<div class="city_block borderb flexSpaceBetween mb02" ng-click="allCountry()">
+		<span class="fs28 colorblack">全国</span>
+		<span class="selcet_img" ng-class="{'selceted_img':country}"></span>
+	</div>
+
+	<div ng-repeat="province in provinces">
+		<div class="city_block borderb flexSpaceBetween">
+			<div class="displayFlex" ng-click="clickProvince(province)">
+				<span ng-class="{false: 'cityDown', true: 'cityUp'}[province.isOpen = province.isOpen || false]"></span>
+				<span class="fs28 colorblack ml02">{{province.name}}</span>
+			</div>
+			<div class="selcet_img" ng-class="{'selceted_img':province.active}" ng-click="selePro(province)"></div>
+		</div>
+		<div ng-repeat="city in province.cities" ng-if="province.isOpen">
+			<div class="city_block borderb flexSpaceBetween">
+				<div class="displayFlex">
+					<span class="cityNoDown"></span>
+					<span class="fs28 colorblack ml02">{{city.name}}</span>
+				</div>
+				<div class="selcet_img" ng-class="{'selceted_img':city.active}" ng-click="seleCity(city)"></div>
+			</div>
+		</div>		
+	</div>
+	<div class="cerRow displayFlex fixbtn">
+		<div class="little_btn fs33 colorwhite" ui-sref="launch_merchants">取消</div>
+		<div class="little_btn fs33 colorwhite ml03" ng-click="sure()">确定</div>
+	</div>
+</div>
+
+<div ng-include=" 'tpl/footer.html' "></div>

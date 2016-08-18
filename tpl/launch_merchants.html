@@ -1,0 +1,196 @@
+<div ng-controller="launchMmerchantController">
+	<!-- mask -->
+	<div ng-class="{'show': ismask}" ng-click="dismiss()"></div>
+	<!-- popup -->
+	<div class="popDialog alljuzhong" ng-show="ishow"> 
+		<div class="popTitle fs33 red">选择任务酬金</div>
+		<div class="popCon">
+			<div class="launch_pop displayFlexStart flexWrap choosePrice">
+				<span class="launch_pop_price fs28" value="5000.00">5000.00元</span>
+				<span class="launch_pop_price fs28" value="7500.00">7500.00元</span>
+				<span class="launch_pop_price fs28" value="10000.00">10000.00元</span>
+				<span class="launch_pop_price fs28" value="20000.00">20000.00元</span>
+				<span class="launch_pop_price fs28" value="30000.00">30000.00元</span>			
+			</div>
+			<div class="popBtn displayFlex">
+				<div class="popBtnChild fs28 displayFlex blue" ng-click="cancel()">取消</div>
+				<div class="popBtnChild fs28 displayFlex red" ng-click="sure()">确定</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="cerRow fs26 red fw borderb displayFlexCol">
+		<span class="ml03">任务信息</span>
+	</div>
+	<div class="bgcolorfff">
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">招商企业</span>
+				<span class="input fs24 colorblack launch_size displayFlexCol">曼斯特怪兽饮料(上海)有限公司</span>
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">所属行业</span>
+				<select class="input fs24 colorgray1 launch_size userTrade" placeholder="请选择您所属的的行业"
+				ng-model="user.trade">
+					<option value="">请选择您所属的的行业</option>
+					<option ng-repeat="trade in trades" ng-value="{{trade.industryId}}">{{trade.industryName}}</option>  		
+				</select>
+				<span class="mine_arrow_right ml02"></span>
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">发布区域</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="不选择则默认为全国发布" readonly="readonly" ng-model="user.city" ng-click="goCity()">
+				<span class="mine_arrow_right ml02"></span>
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">任务标题</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="请输入您的任务标题" ng-model="user.title">
+			</div>
+		</div>
+		<div class="cerRow displayF" style="height: 3rem;">
+			<div class="launch_block" style="height: 3rem;">
+			</div>
+			<div class="launchInput fs24 colorgray1 bordernone displayF flexCol" style="height: 3rem;">
+				<div class="displayFlexCol" style="width: 4rem;height: 0.9rem;">
+					<span class="width12">任务描述</span>
+				</div>
+				<div class="displayF">
+					<textarea class="launch_text" ng-model="user.description"></textarea>
+				</div>				
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">截止时间</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="请选择您的任务截止时间" id="datepicker" ng-model="user.date">
+				<span class="mine_arrow_right ml02"></span>
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">任务酬金</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="请选择您的任务酬金" readonly="readonly" ng-click="changePrice()" ng-model="user.reward">
+				<span class="mine_arrow_right ml02"></span>
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">可分配酬金</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="请输入您的任务标题" readonly="readonly" ng-model="user.divReward">
+				<span class="ml01 red">元</span>
+			</div>
+		</div>
+	</div>
+	<div class="cerRow fs26 red fw borderb displayFlexCol">
+		<span class="ml03">企业介绍</span>
+	</div>
+	<div class="launch_upload bgcolorfff borderb">
+		<div class="displayF flexWrap">
+			<div class="upload_block displayFlex colorgreen">+</div>
+		<!-- 	<div class="upload_block displayFlex colorgreen">+</div>
+			<div class="upload_block displayFlex colorgreen">+</div>
+			<div class="upload_block displayFlex colorgreen">+</div> -->
+		</div>	
+		<div class="fs24 colorgray1 pl01 mt02">请上传您的企业介绍图片，最多可上传6张</div>	
+	</div>
+	<div class="cerRow fs26 red fw borderb displayFlexCol">
+		<span class="ml03">产品主图</span>
+	</div>
+	<div class="launch_upload bgcolorfff borderb">
+		<div class="displayF flexWrap">
+			<div class="upload_block displayFlex colorgreen">+</div>
+		</div>	
+		<div class="fs24 colorgray1 pl01 mt02">请上传您的企业介绍图片，最多可上传3张</div>	
+	</div>
+	
+	<div class="cerRow fs26 red fw borderb displayFlexCol">
+		<span class="ml03">产品基本信息</span>
+	</div>
+	<div class="bgcolorfff">
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">产品名称</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="请输入您的产品名称" ng-model="user.proName">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">产品品牌</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="请输入您的产品品牌" ng-model="user.proBrand">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">产品产地</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="请输入您的产品产地" ng-model="user.proLocation">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">产品规格</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="请输入您的产品规格" ng-model="user.proSize">
+			</div>
+		</div>
+		<div class="cerRow displayFlex">
+			<div class="launch_block">
+			</div>
+			<div class="launchInput fs24 colorgray1 displayFlexCol">
+				<span class="width12">建议零售价</span>
+				<input type="text" class="input fs24 colorgray1 launch_size" placeholder="请输入您的产品零售价格" ng-model="user.proPrice">
+			</div>
+		</div>
+	</div>
+
+	<div class="cerRow fs26 red fw borderb displayFlexCol">
+		<span class="ml03">产品详情图</span>
+	</div>
+	<div class="launch_upload bgcolorfff borderb">
+		<div class="displayF flexWrap">
+			<div class="upload_block displayFlex colorgreen">+</div>
+		</div>	
+		<div class="fs24 colorgray1 pl01 mt02">请上传您的产品详情图片，最多可上传6张</div>	
+	</div>
+	<div class="cerRow fs26 red fw borderb displayFlexCol">
+		<span class="ml03">招商政策</span>
+	</div>
+	<div class="launch_upload bgcolorfff borderb">
+		<div class="displayF flexWrap">
+			<div class="upload_block displayFlex colorgreen">+</div>
+		</div>	
+		<div class="fs24 colorgray1 pl01 mt02">请上传您的招商政策图片，最多可上传6张</div>	
+	</div>
+
+	<div class="cerRow displayFlex mt03">
+		<div class="little_btn fs33 colorwhite" ng-click="save()">保存为草稿</div>
+		<div class="little_btn fs33 colorwhite ml03" ng-click="submit()">提交任务</div>
+	</div>
+</div>
+<div ng-include=" 'tpl/footer.html' "></div>

@@ -1,0 +1,11 @@
+.show{z-index: 500;position: fixed;top: 0;left: 0;width: 100%;height: 100%;background-color: #000;opacity: 0.2;}
+.mask{}
+/*企业会员认证*/
+.cerRowTitle{height: .85rem;}
+.split_my{  height: .33rem; width: .36rem;}
+.split_myPhone{  height: .3rem; width: .3rem; background-position: -.42rem 0;}
+.split_myWchatNo{  height: .25rem; width: .32rem; background-position: -.78rem -.03rem;}
+.split_myMail{  height: .23rem; width: .33rem; background-position: -1.19rem -.05rem;}
+.split_enterName{  height: .29rem; width: .29rem; background-position: -1.55rem 0;}
+.split_bank{  height: .32rem; width: .32rem; background-position: -2.18rem 0;}
+.split_creditCard{  height: .33rem; width: .23rem; background-position: -2.57rem 0.03rem;}

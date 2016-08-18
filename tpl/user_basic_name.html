@@ -1,0 +1,17 @@
+<div ng-controller="userNameController">
+	<div class="user_invite bgcolorfff displayFlexEnd">		
+		<div class="mine_con wid640">
+			<div class="mine_con_block flexSpaceBetween wid640 hei120">
+				<div class="colorblack fs28">
+					<input type="text" class="input hei120 fs28 colorblack" ng-model="user.nickName" style="width: 5.3rem;">
+				</div>
+				<div class="colorblack fs28 mr03 displayFlex">
+					<span class="mine_delete ml02" ng-click="delete()"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="primary_btn fs30 mt05" ng-click="save()">保存</div>
+
+</div>
